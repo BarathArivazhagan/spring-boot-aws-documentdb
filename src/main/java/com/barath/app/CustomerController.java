@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class CustomerController {
    
     private final CustomerService customerService;
@@ -24,8 +24,8 @@ public class CustomerController {
 
     }
 
-    @PostMapping(value = "/customer")
-    public Customer createSCustomer(@RequestBody @NotNull Customer customer) throws Exception {
+    @PostMapping(value = "/customer", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Customer createCustomer(@RequestBody @NotNull Customer customer) throws Exception {
 
          return customerService.saveCustomer(customer);
     }
