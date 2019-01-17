@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 	
-	private static final String SSL_CERTIFICATE = "rds-ca-2015-us-west-2.pem";
+	private static final String SSL_CERTIFICATE = "rds-ca-2015-us-east-1.pem";
 	 private static final String KEY_STORE_TYPE = "JKS";
 	 private static final String KEY_STORE_PROVIDER = "SUN";
 	 private static final String KEY_STORE_FILE_PREFIX = "sys-connect-via-ssl-test-cacerts";
