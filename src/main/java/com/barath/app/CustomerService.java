@@ -15,7 +15,7 @@ public class CustomerService {
 
     private static final Logger logger= LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private CustomerRepository customerRepo;
+    private final CustomerRepository customerRepo;
 
     public CustomerService(CustomerRepository customerRepository){
         this.customerRepo=customerRepository;
@@ -27,10 +27,7 @@ public class CustomerService {
         if(logger.isInfoEnabled()){
             logger.info("Saving the customer with customer details {}",customer.toString());
         }
-        if(isCustomerExists(customer)){
-            throw new RuntimeException("Customer Already Exists with Name");
-
-        }
+       
         return this.customerRepo.save(customer);
 
     }
