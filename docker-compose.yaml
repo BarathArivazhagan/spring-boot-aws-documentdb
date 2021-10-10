@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   demo:
-    build: ./Dockerfile
+    build: .
     container_name: demo
     image: aws-documentdb:1.0.0
     ports:
