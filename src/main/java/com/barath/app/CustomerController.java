@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.http.MediaType;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,7 +33,7 @@ public class CustomerController {
     @GetMapping(value="/customer/{customerName}")
     public Customer getCustomerByFirstName(@PathVariable String customerName) throws Exception{
 
-        if(!StringUtils.isEmpty(customerName)){
+        if(!ObjectUtils.isEmpty(customerName)){
            return customerService.getCustomer(customerName);
         }
         throw new Exception("Customer with customer first name "+customerName+" not found");
