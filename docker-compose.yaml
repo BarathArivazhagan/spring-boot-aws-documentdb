@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  demo:
+    build: .
+    container_name: demo
+    image: aws-documentdb:1.0.0
+    ports:
+      - "9000:9000"
+    networks:
+      - documentdb
+    environment:
+      JAVA_OPTIONS: "-DsslCertificate=/opt/ssl/rds-combined-ca-bundle.pem"
+      SPRING_DATA_MONGODB_URI: mongodb://127.0.0.1:27017/admin
+
+
+
+networks:
+  documentdb:
+    name: documentdb
+    driver: bridge
